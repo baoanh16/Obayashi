@@ -1,0 +1,96 @@
+// Project item
+.project-item
+	margin-bottom: 20px
+	.imgbox
+		margin-bottom: 10px
+		overflow: hidden
+		img
+			display: none
+	span
+		font-size: 14px
+		font-weight: 600
+		color: #808080
+		text-transform: uppercase
+		display: block
+		margin-bottom: 8px
+	h3
+		font-size: 24px
+		font-weight: 400
+		@media (max-width: 1024.98px)
+			font-size: 21px
+		@media (max-width: 767.98px)
+			font-size: 18px
+	@media (min-width: 1025px)
+		&:hover
+			.imgbox
+				a
+					transform: scale(1.075)
+			h3
+				color: #00933a
+
+
+// Service item
+.service-item
+	margin-bottom: 45px
+	@media (max-width: 767.98px)
+		margin-bottom: 15px
+	.imgbox
+		overflow: hidden
+		img
+			transition: all .4s ease-out
+			width: 100%
+	h3
+		font-size: 30px
+		font-weight: 600
+		color: #333333
+		@media (max-width: 1024.98px)
+			font-size: 26px
+			color: white
+		@media (max-width: 767.98px)
+			font-size: 22px
+	p
+		font-size: 16px
+		font-weight: 400
+		color: #333333
+		@media (max-width: 1024.98px)
+			font-size: 15px
+			color: white
+		@media (max-width: 767.98px)
+			font-size: 14px
+	article
+		position: relative
+	.info
+		margin-top: 20px
+		border-left: 12px solid #f2f2f2
+		padding-left: 20px
+		@media (max-width: 1024.98px)
+			border-left: 0
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			background-color: rgba(0, 147, 58, .8)
+			padding: 15px
+	@media (min-width: 1025px)
+		&:hover
+			.imgbox
+				img
+					transform: scale(1.08)
+			h3
+				color: rgb(0, 147, 58)
+				transition: all .4s ease-out
+// certificate item
+.certificate-item
+	margin-bottom: 30px
+	.imgbox
+		box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1)
+		img
+			width: 100%
+	.info
+		padding-top: 12px
+		h3
+			font-size: 16px
+			font-weight: 700
+			text-transform: uppercase
+			@media (max-width: 1024.98px)
+				font-size: 15px

@@ -1,0 +1,166 @@
+header
+	height: 80px
+	position: fixed
+	top: 0 
+	left: 0
+	z-index: 2
+	background: white
+	width: 100%
+	box-shadow: 0 0 5px 2px rgba(0,0,0,.1)
+	.logo
+		display: flex
+		align-items: center
+		padding: 10px 0
+		flex: 0 0 auto
+		width: auto
+		max-width: 100%
+		img
+			width: 55px
+	.main-nav
+		border-right: 1px solid #e1e1e1
+		ul
+			margin-bottom: 0
+			display: flex
+			padding-left: 0
+			list-style-type: none
+			li
+				margin: 0 24px
+				font-weight: 700
+				font-size: 16px
+				a
+					text-transform: uppercase
+					border-bottom: 2px solid transparent
+				&.active
+					color: $main
+					a
+						border-bottom: 2px solid $main
+				@media (min-width: 1025px)
+					&:hover
+						color: $main
+	.search
+		padding-left: 20px
+		padding-right: 8px
+		position: relative
+		.search-toggle
+			color: $main
+			cursor: pointer
+			font-size: 18px
+		.searchbox
+			position: absolute
+			right: 100%
+			width: 0
+			height: 35px
+			top: 50%
+			transform: translateY(-50%)
+			background: white
+			display: flex
+			overflow: hidden
+			transition: all .3s cubic-bezier(.2,.5,.5,.8)
+			&.show
+				width: 215px
+			input
+				padding: 0 10px
+				font-size: 14px
+				color: $main
+				width: 100%
+				border: 1px solid rgba(0,0,0,.2)
+			button
+				border: 0
+				cursor: pointer
+				background: $main
+				color: white
+				font-size: 18px
+				display: flex
+				justify-content: center
+				align-items: center
+				width: 35px
+				flex: 0 0 35px
+				height: 35px
+				padding: 0
+			input,button
+				&:focus
+					outline: none
+	.language
+		ul
+			margin-bottom: 0
+			padding-left: 0
+			display: flex
+			align-items: center
+			li
+				display: flex
+				align-items: center
+				+ li
+					margin-left: 10px
+				a
+					display: flex
+	.menu-wrapper
+		display: flex
+		align-items: center
+		margin-left: auto
+		height: inherit
+		margin-left: auto
+		height: inherit
+	.toggle-button
+		display: none
+	.container,.row
+		height: inherit
+	@media (max-width: 1024.98px)
+		.toggle-button
+			display: block
+			align-self: center
+			margin-left: 20px
+		.language
+			margin-left: auto
+			align-self: center
+		.mdi-menu
+			font-size: 24px
+			color: $main
+		.menu-wrapper
+			position: fixed
+			top: 80px
+			right: 0
+			width: 240px
+			bottom: 0
+			background: $main
+			flex-direction: column
+			height: auto
+			align-items: flex-end
+			transform: translateX(100%)
+			transition: all .3s cubic-bezier(.2,.5,.5,.8)
+			&.show
+				transform: translateX(0)
+		.main-nav
+			width: 100%
+			border-right: 0
+			ul
+				flex-direction: column
+				li
+					font-weight: 600
+					a
+						color: white
+						padding: 12px 0
+						display: flex
+						text-transform: capitalize
+					&.active
+						a
+							color: white
+							border-bottom: 2px solid white
+		.search
+			padding: 0 24px
+			width: 100%
+			.search-toggle
+				display: none
+			.searchbox
+				width: 100%
+				position: relative
+				right: 0
+				top: 0
+				transform: unset
+				border: 1px solid white
+				input
+					border: 0
+					padding: 0 45px 0 10px
+				button
+					position: absolute
+					top: 0
+					right: 0

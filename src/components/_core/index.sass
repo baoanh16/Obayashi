@@ -1,0 +1,105 @@
+body,html
+	font-family: 'Open Sans',sans-serif
+	font-weight: 400
+	color: #333333
+	font-size: 16px
+	line-height: 1.4
+
+*
+	&:focus
+		outline: none
+
+a
+	font-size: inherit
+	font-weight: inherit
+	color: inherit
+	transition: all .3s cubic-bezier(.2,.5,.5,.8)
+	text-decoration: none
+	&:hover, &:active, &:focus
+		text-decoration: none
+		color: inherit
+
+main
+	padding-top: 80px
+	img
+		max-width: 100%
+		width: 100%
+iframe
+	width: 100%
+	height: 100%
+
+.pd-60
+	padding-top: 70px
+	padding-bottom: 70px
+	@media (max-width: 1024.98px)
+		padding-top: 35px
+		padding-bottom: 35px
+.pt-60
+	padding-top: 70px
+	@media (max-width: 1024.98px)
+		padding-top: 35px
+.pb-60
+	padding-bottom: 70px
+	@media (max-width: 1024.98px)
+		padding-bottom: 35px
+
+.small-title
+	margin-bottom: 24px
+	font-size: 16px
+	font-weight: 600
+	color: #000
+	text-transform: uppercase
+	@media (max-width: 1024.98px)
+		margin-bottom: 12px
+	&.white
+		color: white
+
+.block-title
+	font-weight: 300
+	color: white
+	margin-bottom: 24px
+	font-size: 36px
+	@media (max-width: 1024.98px)
+		font-size: 29px
+	@media (max-width: 767.98px)
+		font-size: 22px
+		
+.big-title
+	font-size: 36px
+	font-weight: 300
+	color: #333
+	line-height: 1.25
+	margin-bottom: 16px
+	@media (max-width: 1024.98px)
+		font-size: 29px
+	@media (max-width: 767.98px)
+		font-size: 22px
+
+.main-button
+	position: relative
+	padding-left: 32px
+	font-size: 18px
+	font-weight: 700
+	color: black
+	line-height: 13px
+	text-transform: uppercase
+	@media (max-width: 1024.98px)
+		font-size: 17px
+	@media (max-width: 767.98px)
+		font-size: 16px
+	&:before
+		content: ''
+		width: 13px
+		height: 13px
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		left: 0
+		background: black
+	.mdi
+		margin-left: 8px
+
+ul
+	list-style-type: none
+	padding-left: 0
+	margin-bottom: 0

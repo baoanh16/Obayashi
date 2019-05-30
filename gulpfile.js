@@ -34,6 +34,17 @@ gulp.task("copyFonts", function () {
 		.pipe(gulp.dest("dist/fonts"));
 })
 
+// Task copy video
+gulp.task("copyVideo", function () {
+	return gulp.src('video/**/**')
+		.pipe(gulp.dest('dist/video'))
+})
+// Task copy favicon
+gulp.task("copyFavicon", function () {
+	return gulp.src('favicon.ico')
+		.pipe(gulp.dest('dist'))
+})
+
 
 // Task clean imagess
 gulp.task("cleanImages", function () {
@@ -68,7 +79,7 @@ gulp.task("js", function () {
 	})
 		.pipe(srcmap.init())
 		.pipe(babel({
-			presets: ["@babel/env"]
+			presets: ["@babel/preset-env"]
 		}))
 		.pipe(uglify())
 		.pipe(rename({
@@ -157,33 +168,43 @@ gulp.task("serve", function () {
 	}),
 		gulp.watch(
 			[
-				"config.json",
-				"_plugins/**.{css,js}"
-			],
-			gulp.parallel("globalJs", "globalCss")
-		),
-		gulp.watch(
-			[
 				"src/img/**/**.{svg,gif,png,jpg,jpeg}"
-			],
+			], {
+				delay: 1500
+			},
 			gulp.series("cleanImages", "copyImages")
 		),
 		gulp.watch(
 			[
+				"config.json",
+				"_plugins/**.{css,js}"
+			], {
+				delay: 200
+			},
+			gulp.parallel("globalJs", "globalCss")
+		),
+		gulp.watch(
+			[
 				"src/**/**.pug",
-			],
+			], {
+				delay: 200
+			},
 			gulp.series("html")
 		),
 		gulp.watch(
 			[
 				"src/components/**/**.sass",
-			],
+			], {
+				delay: 200
+			},
 			gulp.series("css")
 		),
 		gulp.watch(
 			[
 				"src/js/main.js",
-			],
+			], {
+				delay: 200
+			},
 			gulp.series("js")
 		),
 		gulp.watch("dist/*").on("change", browserSync.reload)
@@ -196,6 +217,8 @@ gulp.task("default", gulp.series(
 	"clean",
 	"copyImages",
 	"copyFonts",
+	'copyVideo',
+	'copyFavicon',
 	"globalCss",
 	"globalJs",
 	"html",
