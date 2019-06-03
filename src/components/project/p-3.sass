@@ -1,0 +1,47 @@
+.project-detail
+	.top-project
+		display: flex
+		align-items: center
+	.row
+		justify-content: center
+	.small-project, .big-project
+		img
+			width: 100%
+			opacity: 0
+			display: none
+	.small-project
+		margin-top: 20px
+		.swiper-slide
+			background: black
+			a
+				opacity: .35
+				transition: all .3s cubic-bezier(.2,.5,.5,.8)
+			&-active
+				position: relative
+				&:before
+					content: ''
+					position: absolute
+					width: 100%
+					height: 100%
+					border: 3px solid #029347
+					z-index: 2
+				a
+					opacity: 1
+					position: relative
+	.project-info
+		margin-top: 60px
+		@media (max-width: 1024.98px)
+			margin-top: 30px
+		table
+			border-top: 2px solid #333333
+	.other-project
+		padding-bottom: 60px
+		margin-top: 60px
+		@media (max-width: 1024.98px)
+			margin-top: 30px
+			padding-bottom: 30px
+		.small-title
+			color: #999999
+			span
+				color: #333333
+				font-weight: 600

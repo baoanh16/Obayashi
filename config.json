@@ -15,12 +15,15 @@
 		"_plugins/mapping.js",
 		"_plugins/mapping-listener.js",
 		"bower_components/aos/dist/aos.js",
-		"bower_components/plyr/dist/plyr.polyfilled.min.js"
+		"bower_components/plyr/dist/plyr.polyfilled.min.js",
+		"bower_components/imagesloaded/imagesloaded.pkgd.min.js",
+		"bower_components/masonry-layout/dist/masonry.pkgd.min.js"
 	],
 	"globalCss": [
 		"_plugins/grid.css",
 		"_plugins/font.css",
 		"_plugins/data-bg.css",
+		"_plugins/sitemap.css",
 		"bower_components/swiper/dist/css/swiper.min.css",
 		"bower_components/fancybox/dist/jquery.fancybox.css",
 		"bower_components/aos/dist/aos.css",

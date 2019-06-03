@@ -25,6 +25,13 @@ $(document).ready(function () {
 
 	// project
 	ProjectSlider1();
+	ProjectSlider2();
+
+	// Career
+	ApplyJob();
+
+	// History
+	GridItem();
 })
 
 $(window).on('resize', function () {
@@ -56,6 +63,10 @@ function SetHeightofNewsItem() {
 
 	$('.manager-item').each(function () {
 		$(this).find('.imgbox a').height($(this).width())
+	})
+
+	$('.career-news-item').each(function () {
+		$(this).find('.imgbox a').height($(this).width() / (260 / 173))
 	})
 };
 
@@ -121,7 +132,9 @@ function Home() {
 				if ($(window).width() >= 1025) {
 					$('.home-banner .swiper-container .swiper-slide').height($(window).outerHeight() - 80)
 				}
-				$('.home-banner .swiper-container .video-slide video')[0].addEventListener('ended', myHandler, false);
+				if ($('.home-banner .swiper-container .video-slide video').length > 0) {
+					$('.home-banner .swiper-container .video-slide video')[0].addEventListener('ended', myHandler, false);
+				}
 			}
 		}
 	})
@@ -141,6 +154,8 @@ function Home() {
 	$('.home-6 a[data-fancybox]').fancybox({
 		toolbar: false,
 		smallBtn: true,
+		parentEl: 'form',
+		baseClass: 'map-popup',
 		iframe: {
 			preload: false
 		}
@@ -153,9 +168,133 @@ function Video() {
 }
 
 function ProjectSlider1() {
-	var ProjectSlider = new Swiper('.project-1 .swiper-container', {
-		slidesPerView: 5,
+	var ProjectSlider = new Swiper('.project-1 .project-list .swiper-container', {
+		slidesPerView: 3,
 		centeredSlides: true,
+		spaceBetween: -600,
 		loop: true,
+		autoplay: {
+			delay: 4500,
+		},
+		speed: 1200,
+		// allowTouchMove: false,
+		pagination: {
+			el: '.project-1 .project-list .swiper-pagination',
+			clickable: true,
+		},
+		on: {
+			slideChange: function () {
+				var activeIndex = this.activeIndex;
+				var realIndex = this.slides.eq(activeIndex).attr('data-swiper-slide-index');
+				$('.swiper-slide').removeClass('swiper-slide-nth-prev-2 swiper-slide-nth-next-2');
+				$('.swiper-slide[data-swiper-slide-index="' + realIndex + '"]').prev().prev().addClass('swiper-slide-nth-prev-2');
+				$('.swiper-slide[data-swiper-slide-index="' + realIndex + '"]').next().next().addClass('swiper-slide-nth-next-2');
+			},
+			init: function () {
+				setTimeout(function () {
+					$('.project-1 .project-list .swiper-container .swiper-slide .imgbox a').each(function () {
+						$(this).height($(this).width() / (730 / 480))
+					})
+				}, 800)
+			},
+			resize: function () {
+				setTimeout(function () {
+					$('.project-1 .project-list .swiper-container .swiper-slide .imgbox a').each(function () {
+						$(this).height($(this).width() / (730 / 480))
+					})
+				}, 800)
+			}
+		},
+		breakpoints: {
+			1024: {
+				spaceBetween: 20,
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			576: {
+				slidesPerView: 1.3,
+				spaceBetween: 20,
+			}
+		}
 	})
+}
+
+function ProjectSlider2() {
+	var BigProject = new Swiper('.big-project', {
+		slidesPerView: 1,
+		loop: true,
+		loopAdditionalSlides: 5,
+		speed: 1200,
+		allowTouchMove: false,
+		effect: 'fade',
+		fadeEffect: {
+			crossFade: true,
+		},
+		on: {
+			init: function () {
+				$('.big-project .swiper-slide a').each(function () {
+					$(this).height($(this).width() / (730 / 480))
+				})
+			},
+			resize: function () {
+				$('.big-project .swiper-slide a').each(function () {
+					$(this).height($(this).width() / (730 / 480))
+				})
+			}
+		},
+	})
+	var SmallProject = new Swiper('.small-project', {
+		slidesPerView: 5,
+		spaceBetween: 20,
+		speed: 1200,
+		loop: true,
+		loopAdditionalSlides: 5,
+		slideToClickedSlide: true,
+		centeredSlides: true,
+		breakpoints: {
+			768: {
+				slidesPerView: 3
+			},
+			576: {
+				slidesPerView: 4,
+				spaceBetween: 10,
+			},
+		},
+		on: {
+			init: function () {
+				$('.small-project .swiper-slide a').each(function () {
+					$(this).height($(this).width() / (730 / 480))
+				})
+			},
+			resize: function () {
+				$('.small-project .swiper-slide a').each(function () {
+					$(this).height($(this).width() / (730 / 480))
+				})
+			}
+		},
+	})
+	if ($('.small-project').length > 0) {
+		BigProject.controller.control = SmallProject
+		SmallProject.controller.control = BigProject
+	}
+}
+
+function ApplyJob() {
+	$('.career-detail .main-button').on('click', function (e) {
+		e.preventDefault();
+		$('.form-apply').slideToggle()
+	})
+}
+
+function GridItem() {
+	$('.grid').imagesLoaded(function () {
+		// images have loaded
+		$('.grid').masonry({
+			// options
+			itemSelector: '.grid-item',
+			columnWidth: '.grid-sizer',
+		});
+	});
 }

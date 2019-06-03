@@ -1,0 +1,176 @@
+.cc-footer 
+	.main-footer 
+		background: url(../img/bg-footer.png)
+		background-repeat: no-repeat
+		background-size: cover
+		.item 
+			padding: 30px 15px
+			@media (min-width: 1025px)
+				padding: 60px 15px
+			+ .item 
+				margin-top: 1.5rem
+			img
+				max-width: 225px
+			h3,.module-title
+				font-size: 20px
+				text-transform: uppercase
+				font-weight: 400
+				margin-bottom: 20px
+			.info 
+				padding-left: 0
+				list-style-type: none
+				li
+					a
+						color: #666666
+						font-size: 14px
+						display: block
+						padding: 5px 0
+						text-decoration: none
+					&:hover
+						a
+							color: #11a84e
+			.col-12
+				margin-top: 20px
+		.certificate
+			background: url(../img/bg-footer-2.png)
+			background-repeat: no-repeat
+			background-size: 100%
+			background-position: bottom
+			@media (max-width: 1024.98px)
+				background: none
+	.form-subscribe,.subscribefrm
+		position: relative
+		input
+			width: 100%
+			border: 0
+			border-bottom: 1px solid #11a84e
+			height: 35px
+			background: rgba(0,0,0,0)
+			color: #999999
+			font-size: 14px
+			&::placeholder
+				color: #999999
+		button
+			position: absolute
+			top: 0
+			right: 0
+			background: none
+			border: 0
+			border-bottom: 2px solid black
+			height: 100%
+			font-size: 14px
+			text-transform: uppercase
+			cursor: pointer
+			.lnr
+				margin-left: 5px
+		input,button
+			&:focus
+				outline: none
+	.nav-bottom 
+		padding: 20px 0
+		background: #11a84e
+		.copyright
+			.nav-left
+				text-align: center
+				.nav
+					padding-left: 0
+					display: flex
+					justify-content: center
+					flex-flow: wrap
+					.nav-item
+						list-style: none
+						+ .nav-item 
+							padding-left: .35rem
+							margin-left: .35rem
+							position: relative
+							&:before
+								content: ''
+								width: 1px
+								height: 12px
+								background: #ffffff
+								position: absolute
+								top: 50%
+								left: 0
+								transform: translateY(-50%)
+						.nav-link
+							font-size: 13px
+							color: #ffffff
+				p 
+					font-size: 13px
+					color: #ffffff
+			.nav-right 
+				margin-top: 20px
+				text-align: center
+				p 
+					font-size: 13px
+					margin-bottom: 0
+					a
+						color: #ffffff
+						.mdi
+							margin-right: 12px
+				.select 
+					position: relative
+					width: 180px
+					@media (max-width: 767.9px)
+						width: 100%
+					select
+						color: #ffffff
+						background-color: rgba(0,0,0,0)
+						border: 1px solid rgba(255,255,255,.5)
+						height: 30px
+					&:after
+						color: #ffffff
+				.social 
+					justify-content: center
+					display: flex
+					margin-top: 10px
+					a 
+						width: 30px
+						border: 1px solid rgba(255,255,255,.5)
+						height: 30px
+						display: flex
+						justify-content: center
+						align-items: center
+						margin-right: 0
+						+ a 
+							margin-left: .5rem
+						i 
+							color: #ffffff
+				.select, .social 
+					margin-top: .5rem
+					margin-left: 20px
+					@media (max-width: 767.9px)
+						margin-left: 0
+	@media (min-width: 576px)
+		.nav-bottom 
+			.copyright
+				.nav-right
+					display: flex
+					justify-content: center
+					align-items: center
+					p, .select, .social 
+						margin-top: 0
+	@media (min-width: 1025px)
+		.main-footer
+			.item
+				text-align: left
+				+ .item 
+					margin-top: 0
+				h3,.module-title
+					margin-bottom: 16px
+				.info 
+					p 
+						padding-bottom: 20px
+						+ p 
+							padding: 0
+		.nav-bottom 
+			.copyright
+				display: flex
+				justify-content: space-between
+				align-items: center
+				.nav-left 
+					.nav 
+						justify-content: left
+				.nav-right
+					justify-content: flex-end
+					margin-top: 0

@@ -1,0 +1,32 @@
+.career-1
+	.item
+		border-bottom: 1px solid #e1e1e1
+		padding: 20px 0
+		height: 100%
+		h3
+			font-size: 18px
+			font-weight: 600
+		span
+			color: #808080
+	@media (min-width: 768px)
+		.item-col
+			&:nth-child(3),
+			&:nth-child(4)
+				.item
+					border-bottom: 0
+		.item-col
+			&:nth-child(2n)
+				.item
+					position: relative
+					padding-left: 35px
+					&:before
+						content: ''
+						position: absolute
+						top: 5px
+						bottom: 5px
+						width: 1px
+						left: -15px
+						background: #e1e1e1
+	.button-wrapper
+		margin-top: 30px
+	

@@ -288,7 +288,7 @@ template {
 	display: none !important;
 }
 
-.container {
+.container,.sitemap {
 	width: 100%;
 	padding-right: 15px;
 	padding-left: 15px;
@@ -298,13 +298,13 @@ template {
 
 
 @media (min-width: 1025px) {
-	.container {
+	.container,.sitemap {
 		max-width: 990px;
 	}
 }
 
 @media (min-width: 1200px) {
-	.container {
+	.container,.sitemap {
 		max-width: 1140px;
 	}
 }

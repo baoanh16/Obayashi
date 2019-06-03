@@ -19,7 +19,18 @@
 				text-transform: uppercase
 		p,li
 			margin-bottom: 7px
-
+		li
+			position: relative
+			padding-left: 20px
+			&:before
+				position: absolute
+				width: 8px
+				height: 8px
+				border-radius: 50%
+				background: #cccccc
+				left: 0
+				top: 8px
+				content: ''
 .our-location
 	.imgbox
 		margin-bottom: 20px
@@ -28,7 +39,7 @@
 		@media (max-width: 1024.98px)
 			margin-bottom: 30px
 		h3,h4
-			font-weight: 300
+			font-weight: 400
 			font-size: 36px
 			@media (max-width: 1024.98px)
 				font-size: 29px
