@@ -47,7 +47,7 @@
 							</a>
 							<a href="#">
 								<xsl:attribute name="href">
-									<xsl:text disable-output-escaping="yes">https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;source=</xsl:text>
+									<xsl:text disable-output-escaping="yes">https://pinterest.com/pin/create/button/?url=&amp;media=&amp;description=</xsl:text>
 									<xsl:value-of disable-output-escaping="yes" select="/NewsDetail/FullUrl"></xsl:value-of>
 								</xsl:attribute>
 								<img src="/Data/Sites/1/skins/default/img/pin.jpg" alt="" />

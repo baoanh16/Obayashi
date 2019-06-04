@@ -18,13 +18,12 @@
 						<select data-nav="">
 							<xsl:apply-templates select="/ZoneList/Zone" mode="Select"></xsl:apply-templates>
 						</select>
-						<xsl:if test="/ZoneList/SecondImageUrl != ''">
-							<p style="margin-top: 30px">
-								<xsl:value-of disable-output-escaping="yes" select="/ZoneList/SecondImageUrl"></xsl:value-of>
-							</p>
-						</xsl:if>
 					</div>
-					<xsl:apply-templates select="/ZoneList/Zone" mode="Image"></xsl:apply-templates>
+					<img>
+						<xsl:attribute name="src">
+							<xsl:value-of disable-output-escaping="yes" select="/ZoneList/SecondImageUrl"></xsl:value-of>
+						</xsl:attribute>
+					</img>
 				</div>
 			</div>
 		</div>

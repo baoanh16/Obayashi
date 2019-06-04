@@ -1,4 +1,6 @@
 .home-banner
+	@media (max-width: 767.98px)
+		display: none
 	.swiper-slide
 		background: black
 		min-height: 100%
@@ -114,3 +116,19 @@
 				.text
 					p
 						font-size: 60px
+
+.home-banner-2
+	display: none
+	@media (max-width: 768px)
+		display: block
+		.imgbox
+			position: relative
+			width: 100%
+			.caption
+				color: white
+				padding: 15px
+				text-align: center
+				margin-bottom: 20px
+				position: absolute
+				bottom: 0
+				font-size: 15px

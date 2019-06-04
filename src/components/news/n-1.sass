@@ -1,7 +1,14 @@
 .news
 	padding: 30px 0
+	.container
+		.row
+			margin-bottom: -20px
+	.news-detail .row
+		margin-bottom: 0
 	.news-item
 		margin-bottom: 16px
+		@media (max-width: 1024.98px)
+			margin-bottom: 20px
 		time
 			color: #999999
 		span
@@ -24,6 +31,10 @@
 		h3
 			font-size: 24px
 			font-weight: 600
+			@media (max-width: 1024.98px)
+				font-size: 21px
+			@media (max-width: 767.98px)
+				font-size: 18px
 		&:hover
 			h3
 				color: #00933a

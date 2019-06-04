@@ -34,6 +34,13 @@ $(document).ready(function() {
 
     currCulture = $('#hdfDealerLocatorCulture').val();
 
+    $('.btn-loadmap').click(function(e){
+        e.preventDefault();
+        $('.btn-loadmap.active').removeClass('active');
+        $(this).addClass('active');
+        $('#edit-submit').trigger('click');
+        return false;
+    });
     image = new google.maps.MarkerImage(
         iconUrl,
         new google.maps.Size(34, 46),
@@ -132,7 +139,7 @@ $(document).ready(function() {
                         $.each(result.d, function(key, value) {
                             $(obj).append($("<option></option>").val(value.Key).html(value.Name));
                         });
-						
+
   						$('#edit-submit').trigger('click');
                     },
                     error: function(result) {
@@ -146,7 +153,7 @@ $(document).ready(function() {
 	$('#ddlDistrict').change(function() {
 		$('#edit-submit').trigger('click');
 	});
-		
+
     if ($('#add #map_canvas').length) {
 
         var lat = 10.8230989;
@@ -383,6 +390,7 @@ function gmap_location_lookup(address, distance, region, userlat, userlng) {
                         languageid: $('#hdnDealerLocatorLanguageId').val(),
                         siteid: $('#hdnDealerLocatorSiteId').val(),
                         zoneguid: $('#hdnDealerLocatorZoneGuid').val(),
+                        zoneId: $('.btn-loadmap.active').data('id'),
                         country: $('#ddlCountry').val(),
                         province: $('#ddlProvince').val(),
                         district: $('#ddlDistrict').val()
@@ -413,7 +421,7 @@ function gmap_location_lookup(address, distance, region, userlat, userlng) {
                                 // calc distance
                                 origin = new google.maps.LatLng(lat, lng);
                                 dest = new google.maps.LatLng(v.getAttribute("lat"), v.getAttribute("lng"));
-                                // set km / miles language	
+                                // set km / miles language
                                 themiles = 'miles'; //v.getAttribute("titlemiles");
                                 thekm = 'km'; //v.getAttribute("titlekm");
 
@@ -492,7 +500,7 @@ function gmap_location_lookup(address, distance, region, userlat, userlng) {
                                 $(this).addClass('active');
                                 $('div[title="Exit Street View"]').trigger('click');
 								map.setZoom(20);
-								
+
 
                             });
 
@@ -566,6 +574,7 @@ function gmap_province_lookup(distance, region, userlat, userlng) {
             siteid: $('#hdnDealerLocatorSiteId').val(),
             zoneguid: parentZone,
             country: $('#ddlCountry').val(),
+            zoneId: $('.btn-loadmap.active').data('id'),
             province: $('#ddlProvince').val(),
             district: $('#ddlDistrict').val()
         },
@@ -612,7 +621,7 @@ function gmap_province_lookup(distance, region, userlat, userlng) {
                         // calc distance
                         origin = new google.maps.LatLng(userlat, userlng);
                         dest = new google.maps.LatLng(v.getAttribute("lat"), v.getAttribute("lng"));
-                        // set km / miles language	
+                        // set km / miles language
                         themiles = 'miles'; //v.getAttribute("titlemiles");
                         thekm = 'km'; //v.getAttribute("titlekm");
 
@@ -678,7 +687,7 @@ function gmap_province_lookup(distance, region, userlat, userlng) {
                     google.maps.event.addListener(marker, 'click', function() {
                         $('#list .clinic_list').removeClass('active');
                         $('#list').animate($("#l_" + marker['__gm_id'])[0].scrollIntoView(true));
-						
+
                         $('#l_' + marker['__gm_id']).addClass('active');
                         toggleBounce(marker);
                         infowindow.setContent(info_window_string);
@@ -700,7 +709,7 @@ function gmap_province_lookup(distance, region, userlat, userlng) {
                 else
                     $('#ajax_msg').html(lang[currCulture].found + "<span class='flash_good'>" + results.length + "</span>" + lang[currCulture].locations + lang[currCulture].searchResultName + lang[currCulture].matchYourSearch).fadeIn();
             } else {
-         
+
                 initmap();
                 $('#ajax_msg').html(lang[currCulture].notFound + lang[currCulture].searchResultName + lang[currCulture].matchYourSearch).fadeIn();
             }
@@ -941,7 +950,7 @@ function direction(dest, lat, lng) {
     $('#get-direction').click(function() {
         var ori = $('#origin-direction').val();
 		console.log(1);
-        map.setZoom(7);	
+        map.setZoom(7);
         var currentLatLng = new google.maps.LatLng(lat, lng);
         map.setCenter(currentLatLng);
 

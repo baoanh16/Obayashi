@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 	// Home
 	Home();
-
+	HomeBannerMobile();
 	// Chạy script AOS khi mấy cái khác chạy xong
 	AOS.init({
 		duration: 1200,
@@ -36,6 +36,7 @@ $(document).ready(function () {
 
 $(window).on('resize', function () {
 	SetHeightofNewsItem();
+	HomeBannerMobile();
 })
 
 function ChangeHrefBySelect() {
@@ -58,7 +59,7 @@ function SetHeightofNewsItem() {
 	})
 
 	$('.home-6 .item').each(function () {
-		$(this).find('.imgbox a').height($(this).width() / (275 / 380))
+		$(this).find('.imgbox .home-6-imgbox').height($(this).width() / (275 / 380))
 	})
 
 	$('.manager-item').each(function () {
@@ -147,22 +148,27 @@ function Home() {
 			vid.get(0).pause()
 		}
 	});
+
+
+
 	$('.home-6 .item').each(function () {
 		$(this).find('.imgbox a').height($(this).width() / (275 / 380))
 	})
 
-	$('.home-6 a[data-fancybox]').fancybox({
+	$('.home-6 .item [data-fancybox]').fancybox({
 		toolbar: false,
 		smallBtn: true,
-		parentEl: 'form',
 		baseClass: 'map-popup',
-		iframe: {
-			preload: false
-		}
 	})
 
 };
-
+function HomeBannerMobile() {
+	if ($(window).width() < 768) {
+		$('.home-banner-2 .imgbox').height($(window).height() - $('header').height())
+	} else {
+		$('.home-banner-2 .imgbox').height(0)
+	}
+}
 function Video() {
 	const player = new Plyr(document.querySelectorAll('#video'));
 }
@@ -222,37 +228,14 @@ function ProjectSlider1() {
 }
 
 function ProjectSlider2() {
-	var BigProject = new Swiper('.big-project', {
-		slidesPerView: 1,
-		loop: true,
-		loopAdditionalSlides: 5,
-		speed: 1200,
-		allowTouchMove: false,
-		effect: 'fade',
-		fadeEffect: {
-			crossFade: true,
-		},
-		on: {
-			init: function () {
-				$('.big-project .swiper-slide a').each(function () {
-					$(this).height($(this).width() / (730 / 480))
-				})
-			},
-			resize: function () {
-				$('.big-project .swiper-slide a').each(function () {
-					$(this).height($(this).width() / (730 / 480))
-				})
-			}
-		},
-	})
 	var SmallProject = new Swiper('.small-project', {
 		slidesPerView: 5,
 		spaceBetween: 20,
 		speed: 1200,
 		loop: true,
-		loopAdditionalSlides: 5,
 		slideToClickedSlide: true,
 		centeredSlides: true,
+		loopedSlides: 5,
 		breakpoints: {
 			768: {
 				slidesPerView: 3
@@ -270,6 +253,28 @@ function ProjectSlider2() {
 			},
 			resize: function () {
 				$('.small-project .swiper-slide a').each(function () {
+					$(this).height($(this).width() / (730 / 480))
+				})
+			}
+		},
+	})
+	var BigProject = new Swiper('.big-project', {
+		slidesPerView: 1,
+		loopedSlides: 5,
+		loop: true,
+		speed: 1200,
+		effect: 'fade',
+		fadeEffect: {
+			crossFade: true,
+		},
+		on: {
+			init: function () {
+				$('.big-project .swiper-slide a').each(function () {
+					$(this).height($(this).width() / (730 / 480))
+				})
+			},
+			resize: function () {
+				$('.big-project .swiper-slide a').each(function () {
 					$(this).height($(this).width() / (730 / 480))
 				})
 			}

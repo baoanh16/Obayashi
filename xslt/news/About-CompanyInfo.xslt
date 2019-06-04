@@ -49,15 +49,15 @@
 		<div class="item">
 			<div class="title">
 				<h3>
+					<xsl:value-of disable-output-escaping="yes" select="Title"></xsl:value-of>
+				</h3>
+			</div>
+			<div class="content">
 					<xsl:if test="position()=1">
 						<xsl:attribute name="style">
 							<xsl:text disable-output-escaping="yes">color: #00933a</xsl:text>
 						</xsl:attribute>
 					</xsl:if>
-					<xsl:value-of disable-output-escaping="yes" select="Title"></xsl:value-of>
-				</h3>
-			</div>
-			<div class="content">
 				<xsl:value-of disable-output-escaping="yes" select="Content"></xsl:value-of>
 			</div>
 		</div>
