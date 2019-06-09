@@ -106,7 +106,7 @@ function Header_MoveLanguage() {
 
 function Home() {
 
-	$('.home-banner .scroll-down').on('click', function () {
+	$('.scroll-down').on('click', function () {
 		$('html,body').animate({
 			scrollTop: $('.home-1').offset().top - 80
 		}, 1000)

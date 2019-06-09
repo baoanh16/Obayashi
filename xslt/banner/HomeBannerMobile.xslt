@@ -6,6 +6,10 @@
 	<xsl:template match="/">
 		<div class="home-banner-2">
 			<xsl:apply-templates select="/BannerList/Banner"></xsl:apply-templates>
+			<div class="scroll-down">
+				<span class="lnr lnr-chevron-down"></span>
+				<span>Scroll</span>
+			</div>
 		</div>
 	</xsl:template>
 	<xsl:template match="Banner">
