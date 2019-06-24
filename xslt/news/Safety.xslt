@@ -40,7 +40,7 @@
 				</div>
 			</div>
 		</xsl:if>
-		<xsl:if test="position()=5 and count(News) &gt; 0">
+		<!-- <xsl:if test="position()=5 and count(News) &gt; 0">
 			<div class="safety-5 pd-60">
 				<div class="container">
 					<h2 class="big-title">
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-		</xsl:if>
+		</xsl:if> -->
 	</xsl:template>
 	<xsl:template match="News" mode="Zone-News-1">
 		<div class="row">

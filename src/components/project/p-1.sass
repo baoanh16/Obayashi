@@ -73,8 +73,29 @@
 				border: 2px solid #333333
 				opacity: 1
 				border-radius: 0
-				margin: 0  5px
+				margin: 0 5px
 				background: none
 				position: static
 				&.swiper-pagination-bullet-active
 					background: #333333
+		.swiper-nav
+			.btn-prev,.btn-next
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				font-size: 42px
+				color: white
+				z-index: 10
+				cursor: pointer
+				text-shadow: 0 0 20px rgba(black,.5)
+				@media (max-width: 767.98px)
+					font-size: 28px
+			.btn-prev
+				left: 120px
+				@media (max-width: 767.98px)
+					left: 30px
+			.btn-next
+				right: 120px
+				@media (max-width: 767.98px)
+					right: 30px
+				

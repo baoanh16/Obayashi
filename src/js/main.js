@@ -178,12 +178,18 @@ function ProjectSlider1() {
 		slidesPerView: 3,
 		centeredSlides: true,
 		spaceBetween: -600,
+		allowTouchMove: false,
+		loopedSlides: 6,
 		loop: true,
 		autoplay: {
 			delay: 4500,
 		},
-		speed: 1200,
-		// allowTouchMove: false,
+		speed: 500,
+		preventInteractionOnTransition: true,
+		navigation: {
+			prevEl: ".project-1 .project-list .btn-prev",
+			nextEl: ".project-1 .project-list .btn-next"
+		},
 		pagination: {
 			el: '.project-1 .project-list .swiper-pagination',
 			clickable: true,
@@ -216,19 +222,21 @@ function ProjectSlider1() {
 				spaceBetween: 20,
 			},
 			768: {
-				slidesPerView: 2,
+				slidesPerView: 1,
 				spaceBetween: 20,
+				centeredSlides: false,
 			},
 			576: {
-				slidesPerView: 1.3,
+				slidesPerView: 1,
 				spaceBetween: 20,
+				centeredSlides: false,
 			}
 		}
 	})
 }
 
 function ProjectSlider2() {
-	var SmallProject = new Swiper('.small-project', {
+	var SmallProject = new Swiper('.project-detail .small-project', {
 		slidesPerView: 5,
 		spaceBetween: 20,
 		speed: 1200,
@@ -236,6 +244,10 @@ function ProjectSlider2() {
 		slideToClickedSlide: true,
 		centeredSlides: true,
 		loopedSlides: 5,
+		autoplay: {
+			delay: 3200,
+			disableOnInteraction: false,
+		},
 		breakpoints: {
 			768: {
 				slidesPerView: 3
@@ -247,18 +259,18 @@ function ProjectSlider2() {
 		},
 		on: {
 			init: function () {
-				$('.small-project .swiper-slide a').each(function () {
+				$('.project-detail .small-project .swiper-slide a').each(function () {
 					$(this).height($(this).width() / (730 / 480))
 				})
 			},
 			resize: function () {
-				$('.small-project .swiper-slide a').each(function () {
+				$('.project-detail .small-project .swiper-slide a').each(function () {
 					$(this).height($(this).width() / (730 / 480))
 				})
 			}
 		},
 	})
-	var BigProject = new Swiper('.big-project', {
+	var BigProject = new Swiper('.project-detail .big-project', {
 		slidesPerView: 1,
 		loopedSlides: 5,
 		loop: true,
@@ -269,18 +281,18 @@ function ProjectSlider2() {
 		},
 		on: {
 			init: function () {
-				$('.big-project .swiper-slide a').each(function () {
+				$('.project-detail .big-project .swiper-slide a').each(function () {
 					$(this).height($(this).width() / (730 / 480))
 				})
 			},
 			resize: function () {
-				$('.big-project .swiper-slide a').each(function () {
+				$('.project-detail .big-project .swiper-slide a').each(function () {
 					$(this).height($(this).width() / (730 / 480))
 				})
 			}
 		},
 	})
-	if ($('.small-project').length > 0) {
+	if ($('.project-detail .small-project').length > 0) {
 		BigProject.controller.control = SmallProject
 		SmallProject.controller.control = BigProject
 	}

@@ -7,6 +7,10 @@
 		<div class="container">
 			<div class="project-list">
 				<div class="swiper-container">
+					<div class="swiper-nav">
+						<div class="btn-prev mdi mdi-arrow-left"></div>
+						<div class="btn-next mdi mdi-arrow-right"></div>
+					</div>
 					<div class="swiper-wrapper">
 						<xsl:apply-templates select="/NewsList/News"></xsl:apply-templates>
 					</div>
@@ -19,9 +23,9 @@
 		<div class="swiper-slide">
 			<div class="imgbox">
 				<a>
-				<xsl:attribute name="data-bg">
-					<xsl:value-of disable-output-escaping="yes" select="ImageUrl"></xsl:value-of>
-				</xsl:attribute>
+					<xsl:attribute name="data-bg">
+						<xsl:value-of disable-output-escaping="yes" select="ImageUrl"></xsl:value-of>
+					</xsl:attribute>
 					<xsl:attribute name="href">
 						<xsl:value-of select="Url"></xsl:value-of>
 					</xsl:attribute>
