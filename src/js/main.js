@@ -32,6 +32,17 @@ $(document).ready(function () {
 
 	// History
 	GridItem();
+	FakePagination();
+
+	//
+	$('#footer-select-link select').on("change", function () {
+		let url = $(this).find("option:selected").val();
+		if (url != undefined) {
+			window.location.assign(url)
+		} else {
+			window.location.assign("/")
+		}
+	})
 })
 
 $(window).on('resize', function () {
@@ -162,6 +173,7 @@ function Home() {
 	})
 
 };
+
 function HomeBannerMobile() {
 	if ($(window).width() < 768) {
 		$('.home-banner-2 .imgbox').height($(window).height() - $('header').height())
@@ -169,6 +181,7 @@ function HomeBannerMobile() {
 		$('.home-banner-2 .imgbox').height(0)
 	}
 }
+
 function Video() {
 	const player = new Plyr(document.querySelectorAll('#video'));
 }
@@ -314,4 +327,23 @@ function GridItem() {
 			columnWidth: '.grid-sizer',
 		});
 	});
+}
+
+function FakePagination() {
+	if ($("#safety-news").length > 0) {
+		let arr = [];
+		$('#safety-news').children().each(function () {
+			arr.push(this)
+		})
+		$('#safety-news-pagination').pagination({
+			pageSize: 8,
+			autoHidePrevious: true,
+			autoHideNext: true,
+			dataSource: arr,
+			callback: function (data, pagination) {
+				$('#safety-news').html(data);
+			}
+		})
+
+	}
 }

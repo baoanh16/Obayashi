@@ -4,14 +4,19 @@
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl">
 	<xsl:output method="html" indent="yes"/>
 	<xsl:template match="/">
-		<div class="container">
-			<h2 class="big-title">
-				<xsl:value-of disable-output-escaping="yes" select="/NewsList/ModuleTitle"></xsl:value-of>
-			</h2>
-			<div class="row">
-				<xsl:apply-templates select="/NewsList/News"></xsl:apply-templates>
+		<xsl:if test="count(/ZoneList/Zone[position()=last()]/News) &gt;0">
+			<div class="safety-5 pd-60">
+				<div class="container">
+					<h2 class="big-title">
+						<xsl:value-of disable-output-escaping="yes" select="/ZoneList/ModuleTitle"></xsl:value-of>
+					</h2>
+					<div class="row safety-news" id="safety-news">
+						<xsl:apply-templates select="/ZoneList/Zone[position()=last()]/News"></xsl:apply-templates>
+					</div>
+					<div class="row" id="safety-news-pagination"></div>
+				</div>
 			</div>
-		</div>
+		</xsl:if>
 	</xsl:template>
 	<xsl:template match="News">
 		<div class="col-md-6">

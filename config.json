@@ -14,6 +14,7 @@
 		"_plugins/data-bg.js",
 		"_plugins/mapping.js",
 		"_plugins/mapping-listener.js",
+		"_plugins/pagination.js",
 		"bower_components/aos/dist/aos.js",
 		"bower_components/plyr/dist/plyr.polyfilled.min.js",
 		"bower_components/imagesloaded/imagesloaded.pkgd.min.js",
